@@ -345,9 +345,11 @@ def fetch_TR9856():
 def fetch_Agirre201(which="regular"):
     if which=="regular":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Agirre201_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     elif which=="lowercase":
-        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Agirre201_lowercase_dataset.csv', 'similarity',header=None, sep=";")
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Agirre201_lowercase_dataset.csv', 'similarity',header=None, sep=";").values
+
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
@@ -357,7 +359,8 @@ def fetch_Agirre201(which="regular"):
 
 def fetch_SimVerb3500():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Gerz_SimVerb3500_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -366,9 +369,11 @@ def fetch_SimVerb3500():
 def fetch_MTURK(which="771"):
     if which=="771":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Halawi_MTURK771_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     elif which=="287/235":
-        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Radinsky_MTurk287_filtered235_dataset.csv', 'similarity',header=None, sep=";")
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Radinsky_MTurk287_filtered235_dataset.csv', 'similarity',header=None, sep=";").values
+
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
@@ -377,14 +382,16 @@ def fetch_MTURK(which="771"):
 
 def fetch_MC28():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Miller_Charles_28_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
 
 def fetch_PS():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/PirroSeco_full_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -392,11 +399,14 @@ def fetch_PS():
 def fetch_SIMLEX(which="665"):
     if which=="665":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex665_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     elif which=="999":
-        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex999_dataset.csv', 'similarity',header=None, sep=";")
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex999_dataset.csv', 'similarity',header=None, sep=";").values
+
     elif which=="222":
-        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex222_verbs_dataset.csv', 'similarity',header=None, sep=";")
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex222_verbs_dataset.csv', 'similarity',header=None, sep=";").values
+
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
@@ -405,7 +415,8 @@ def fetch_SIMLEX(which="665"):
 
 def fetch_REL122():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Rel122_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -416,7 +427,8 @@ def fetch_rw(which="2034"):
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords2034_dataset.csv',
                       'similarity',header=None, sep=";")
     elif which=="1401":
-        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords1401_dataset.csv', 'similarity',header=None, sep=";")
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords1401_dataset.csv', 'similarity',header=None, sep=";").values
+
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
@@ -426,7 +438,8 @@ def fetch_rw(which="2034"):
 
 def fetch_YP130():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Yang_YP130_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -434,21 +447,23 @@ def fetch_YP130():
 
 def fetch_SCWS():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SCWS1994_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
 
 def fetch_SCWS():
     data = _get_as_pd('xihttps://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SCWS1994_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
+
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
 
 def fetch_men():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/MEN_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
