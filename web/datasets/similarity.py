@@ -348,7 +348,8 @@ def fetch_Agirre201(which="regular"):
                       'similarity',header=none, sep=";")
     elif which=="lowercase":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Agirre201_lowercase_dataset.csv', 'similarity',header=none, sep=";")
-    else RuntimeError("Not recognised which parameter")
+    else:
+        RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -368,7 +369,8 @@ def fetch_MTURK(which="771"):
                       'similarity',header=none, sep=";")
     elif which=="287/235":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Radinsky_MTurk287_filtered235_dataset.csv', 'similarity',header=none, sep=";")
-    else RuntimeError("Not recognised which parameter")
+    else:
+        RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -395,7 +397,8 @@ def fetch_SIMLEX(which="665"):
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex999_dataset.csv', 'similarity',header=none, sep=";")
     elif which=="222":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex222_verbs_dataset.csv', 'similarity',header=none, sep=";")
-    else RuntimeError("Not recognised which parameter")
+    else:
+        RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
@@ -414,7 +417,8 @@ def fetch_rw(which="2034"):
                       'similarity',header=none, sep=";")
     elif which=="1401":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords1401_dataset.csv', 'similarity',header=none, sep=";")
-    else RuntimeError("Not recognised which parameter")
+    else:
+        RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
                  y=data[:, 2].astype(np.float),
                  sd=np.std(data[:, 3:].astype(np.float)))
