@@ -342,7 +342,7 @@ def fetch_TR9856():
 
     return Bunch(X=X.astype("object"), y=y, topic=topic)
 
-def fetch_Agirre201(which="regular"):
+def fetch_Agirre201(which="lowercase"):
     if which=="regular":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Agirre201_dataset.csv',
                       'similarity',header=None, sep=";").values
@@ -353,8 +353,7 @@ def fetch_Agirre201(which="regular"):
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 
 def fetch_SimVerb3500():
@@ -362,8 +361,7 @@ def fetch_SimVerb3500():
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 
 def fetch_MTURK(which="771"):
@@ -377,63 +375,56 @@ def fetch_MTURK(which="771"):
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
-
+                 y=data[:, 2].astype(np.float))
 def fetch_MC28():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Miller_Charles_28_dataset.csv',
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 def fetch_PS():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/PirroSeco_full_dataset.csv',
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 def fetch_SIMLEX(which="665"):
     if which=="665":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex665_dataset.csv',
                       'similarity',header=None, sep=";").values
-
     elif which=="999":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex999_dataset.csv', 'similarity',header=None, sep=";").values
-
     elif which=="222":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex222_verbs_dataset.csv', 'similarity',header=None, sep=";").values
+    elif which=="111":
+        data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SimLex111_adjectives_dataset.csv', 'similarity',header=None, sep=";").values
 
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 def fetch_REL122():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/Rel122_dataset.csv',
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 
 def fetch_rw(which="2034"):
     if which=="2034":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords2034_dataset.csv',
-                      'similarity',header=None, sep=";")
+                      'similarity',header=None, sep=";").values
     elif which=="1401":
         data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/RareWords1401_dataset.csv', 'similarity',header=None, sep=";").values
 
     else:
         RuntimeError("Not recognised which parameter")
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 
 def fetch_YP130():
@@ -441,8 +432,7 @@ def fetch_YP130():
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 
 def fetch_SCWS():
@@ -450,23 +440,21 @@ def fetch_SCWS():
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 def fetch_SCWS():
-    data = _get_as_pd('xihttps://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SCWS1994_dataset.csv',
+    data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/SCWS1994_dataset.csv',
                       'similarity',header=None, sep=";").values
 
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
 
 def fetch_men():
     data = _get_as_pd('https://raw.githubusercontent.com/jjlastra/HESML/master/HESML_Library/WN_Datasets/MEN_dataset.csv',
                       'similarity',header=None, sep=";").values
     return Bunch(X=data[:, 0:2].astype("object"),
-                 y=data[:, 2].astype(np.float),
-                 sd=np.std(data[:, 3:].astype(np.float)))
+                 y=data[:, 2].astype(np.float))
+
 
 
 

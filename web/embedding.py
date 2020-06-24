@@ -20,6 +20,7 @@ from six.moves import cPickle as pickle
 from six.moves import range
 from functools import partial
 from .utils import standardize_string, to_utf8
+from gensim.models import KeyedVectors
 
 from sklearn.metrics import pairwise_distances
 
